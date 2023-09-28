@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: education-service
+  config:
+    import: optional:configserver:http://localhost:8888
