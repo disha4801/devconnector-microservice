@@ -26,7 +26,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 //	@Autowired
 //	ApiClient apiClient;
 
-	@Value("${api.profile}")
+	//@Value("${api.profile}")
 	private String URL;
 	
 	@Override
@@ -42,7 +42,7 @@ public class ExperienceServiceImpl implements ExperienceService {
 //		}
 		try {
 
-			ResponseEntity<Profile> responseEntity = restTemplate.getForEntity(URL + "/" + experience.getProfileUUID(),
+			ResponseEntity<Profile> responseEntity = restTemplate.getForEntity("http://PROFILE-SERVICE/api/profile/check" + "/" + experience.getProfileUUID(),
 								Profile.class);
 //	 		if(customer.isPresent()) {
 //	 			account.setCustomer(customer.get());
