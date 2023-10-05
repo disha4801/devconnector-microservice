@@ -38,10 +38,10 @@ public class User {
 	@GenericGenerator(name = "user_seq", strategy = "com.dnb.userservice.utils.CustomIdGenerator",
 	parameters =  {@Parameter(name=CustomIdGenerator.INCREMENT_PARAM,value="50"),
 			@Parameter(name=CustomIdGenerator.FLAG_PARAMETER,value="false"),
-			@Parameter(name=CustomIdGenerator.VALUE_PREFIX_PARAMETER,value="User_"),
+			//@Parameter(name=CustomIdGenerator.VALUE_PREFIX_PARAMETER,value="User_"),
 			@Parameter(name=CustomIdGenerator.NUMBER_FORMAT_PARAMETER,value="%05d")}
 			)
-	private String userId;
+	private int userId;
 	private String name;
 	@Column(unique=true)
 	private String emailId;

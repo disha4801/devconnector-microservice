@@ -41,8 +41,9 @@ public class ExperienceServiceImpl implements ExperienceService {
 //			profile.orElseThrow(()->new IdNotFoundException("Profile id is not valid"));
 //		}
 		try {
-			ResponseEntity<Profile> responseEntity = restTemplate.getForEntity(URL + "/exp/" + experience.getExperienceId(),
-					Profile.class);
+
+			ResponseEntity<Profile> responseEntity = restTemplate.getForEntity(URL + "/" + experience.getProfileUUID(),
+								Profile.class);
 //	 		if(customer.isPresent()) {
 //	 			account.setCustomer(customer.get());
 //			System.out.println(responseEntity.getBody());

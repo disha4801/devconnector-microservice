@@ -32,15 +32,8 @@ import lombok.ToString;
 public class Education {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "education_seq")
-	
-	@GenericGenerator(name = "education_seq", strategy = "com.dnb.educationservice.utils.CustomIdGenerator",
-	parameters =  {@Parameter(name=CustomIdGenerator.INCREMENT_PARAM,value="50"),
-			@Parameter(name=CustomIdGenerator.VALUE_PREFIX_PARAMETER,value="Edu_"),
-			@Parameter(name=CustomIdGenerator.FLAG_PARAMETER,value="true"),
-			@Parameter(name=CustomIdGenerator.NUMBER_FORMAT_PARAMETER,value="%05d")}
-			)
-	private String educationId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long educationId;
 	@Column(nullable = false)
 	@NotBlank(message = "School or bootcamp should not be blank")
 	private String school;//not null

@@ -25,7 +25,7 @@ import com.dnb.userservice.service.UserService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
 	@Autowired
@@ -47,7 +47,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/usr/{userId}")
-	public ResponseEntity<?>getUserById(@PathVariable("userId")String userId) throws InvalidIdException{
+	public ResponseEntity<?>getUserById(@PathVariable("userId")int userId) throws InvalidIdException{
 		Optional<User>optional=userService.getUserByUserId(userId);
 		if(optional.isPresent()) {
 			return ResponseEntity.ok(optional.get());

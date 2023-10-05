@@ -1,6 +1,7 @@
 package com.dnb.experienceservice.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ import com.dnb.experienceservice.service.ExperienceService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/experience")
+@RequestMapping("/api/experience")
 public class ExperienceController {
 	
 	@Value("${customProperty.test}")
@@ -55,7 +56,7 @@ public class ExperienceController {
 		}
 	}
 	
-	@GetMapping("/exp/{exerienceId}")
+	@GetMapping("{exerienceId}")
 	public ResponseEntity<?>getExperienceById(@PathVariable("experienceId")String experienceId) throws InvalidIdException{
 		Optional<Experience>optional=experienceService.getExperienceById(experienceId);
 		if(optional.isPresent()) {

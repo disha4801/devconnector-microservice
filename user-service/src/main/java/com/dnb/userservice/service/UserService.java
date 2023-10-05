@@ -9,7 +9,7 @@ import com.dnb.userservice.exceptions.IdNotFoundException;
 public interface UserService {
 	public User createUser(User user);
 	
-	public Optional<User> getUserByUserId(String userId);
+	public Optional<User> getUserByUserId(int userId);
 	
 	public Iterable<User> getAllUsers();
 	

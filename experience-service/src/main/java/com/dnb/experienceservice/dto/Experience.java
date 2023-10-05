@@ -31,16 +31,16 @@ import lombok.ToString;
 @Entity
 public class Experience {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.UUID)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "experience_seq")
-	
-	@GenericGenerator(name = "experience_seq", strategy = "com.dnb.experienceservice.utils.CustomIdGenerator",
-	parameters =  {@Parameter(name=CustomIdGenerator.INCREMENT_PARAM,value="1000"),
-			@Parameter(name=CustomIdGenerator.FLAG_PARAMETER,value="true"),
-			@Parameter(name=CustomIdGenerator.VALUE_PREFIX_PARAMETER,value="Exp_"),
-			@Parameter(name=CustomIdGenerator.NUMBER_FORMAT_PARAMETER,value="%05d")}
-			)
-	private String experienceId;//exp_date_number//https://thorben-janssen.com/custom-sequence-based-idgenerator/
+	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "experience_seq")
+//	
+//	@GenericGenerator(name = "experience_seq", strategy = "com.dnb.experienceservice.utils.CustomIdGenerator",
+//	parameters =  {@Parameter(name=CustomIdGenerator.INCREMENT_PARAM,value="1000"),
+//			@Parameter(name=CustomIdGenerator.FLAG_PARAMETER,value="true"),
+//			@Parameter(name=CustomIdGenerator.VALUE_PREFIX_PARAMETER,value="Exp_"),
+//			@Parameter(name=CustomIdGenerator.NUMBER_FORMAT_PARAMETER,value="%05d")}
+//			)
+	private long experienceId;//exp_date_number//https://thorben-janssen.com/custom-sequence-based-idgenerator/
 	@Column(nullable = false)
 	@NotBlank(message = "jobTitle should not be blank")
 	private String jobTitle;

@@ -24,7 +24,7 @@ public class EducationServiceImpl implements EducationService {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Value("${api.profile}")
+//	@Value("${api.profile}")
 	private String URL;
 	
 	@Override
@@ -40,8 +40,9 @@ public class EducationServiceImpl implements EducationService {
 //			profile.orElseThrow(()->new IdNotFoundException("Profile id is not valid"));
 //		}
 		try {
-			ResponseEntity<Profile> responseEntity = restTemplate.getForEntity(URL + "/edu/" + education.getProfileUUID(),
-					Profile.class);
+			System.out.println(education);
+			ResponseEntity<Profile> responseEntity = restTemplate.getForEntity("http://PROFILE-SERVICE/api/profile/check"  +"/"+ education.getProfileUUID(),
+								Profile.class);
 //	 		if(customer.isPresent()) {
 //	 			account.setCustomer(customer.get());
 //			System.out.println(responseEntity.getBody());

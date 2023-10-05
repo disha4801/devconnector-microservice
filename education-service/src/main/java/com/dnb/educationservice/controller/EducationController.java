@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 
 @RefreshScope
 @RestController
-@RequestMapping("/education")
+@RequestMapping("/api/education")
 public class EducationController {
 	
 	@Value("${customProperty.test}")
